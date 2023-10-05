@@ -45,7 +45,7 @@
     #m is a matrix or sparse Matrix
     fam <- match.arg(fam); type <- match.arg(type)
     if(is.null(size_factors)) {
-        sz <- colSums(m)
+        sz <- colsum(m)
     } else {
         sz <- size_factors
     }
