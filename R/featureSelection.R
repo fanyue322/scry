@@ -22,9 +22,9 @@ denseBinomialDeviance<-function(X,sz){
     #X has features in cols, observations in rows
     P<-X/sz
     L1P<-log1p(-P)
-    ll_sat<-DelayedArray::colSums(X*(log(P)-L1P)+sz*L1P, na.rm=TRUE)
+    ll_sat<-DelayedArray::colsum(X*(log(P)-L1P)+sz*L1P, na.rm=TRUE)
     sz_sum<-sum(sz)
-    feature_sums<-DelayedArray::colSums(X)
+    feature_sums<-DelayedArray::colsum(X)
     p<-feature_sums/sz_sum
     l1p<-log1p(-p)
     ll_null<-feature_sums*(log(p)-l1p)+sz_sum*l1p
@@ -45,8 +45,8 @@ sparsePoissonDeviance<-function(X,sz){
 
 densePoissonDeviance<-function(X,sz){
     #X has features in cols, observations in rows
-    ll_sat<-DelayedArray::colSums(X*log(X/sz), na.rm=TRUE)
-    feature_sums<-DelayedArray::colSums(X)
+    ll_sat<-DelayedArray::colsum(X*log(X/sz), na.rm=TRUE)
+    feature_sums<-DelayedArray::colsum(X)
     ll_null<-feature_sums*log(feature_sums/sum(sz))
     2*(ll_sat-ll_null)
 }
