@@ -57,7 +57,7 @@ densePoissonDeviance<-function(X,sz){
     #m is either a Matrix or matrix object (later: support DelayedArrays)
     #m a data matrix with genes=rows
     fam <- match.arg(fam)
-    sz <- colSums(m)
+    sz <- colsum(m)
     if(fam=="poisson"){
         lsz<-log(sz)
         #make geometric mean of sz be 1 for poisson
