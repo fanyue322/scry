@@ -38,7 +38,7 @@
 
 #' @importFrom Matrix rowSums
 #' @importFrom Matrix colSums
-#' @importFrom DelayedArray colSums
+#' @importFrom DelayedArray colsum
 .null_residuals <- function(m, fam = c("binomial", "poisson"),
                             type = c("deviance", "pearson"),
                             size_factors=NULL){
